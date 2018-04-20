@@ -13,6 +13,8 @@
 		907A0093208956ED007DFE0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 907A0092208956ED007DFE0C /* Assets.xcassets */; };
 		907A0096208956ED007DFE0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 907A0094208956ED007DFE0C /* LaunchScreen.storyboard */; };
 		907A009E20896131007DFE0C /* MatchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907A009D20896131007DFE0C /* MatchTableViewCell.swift */; };
+		907A00A0208973E5007DFE0C /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907A009F208973E5007DFE0C /* EventTableViewCell.swift */; };
+		907A00A220897736007DFE0C /* MatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907A00A120897736007DFE0C /* MatchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		907A0095208956ED007DFE0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		907A0097208956ED007DFE0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		907A009D20896131007DFE0C /* MatchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTableViewCell.swift; sourceTree = "<group>"; };
+		907A009F208973E5007DFE0C /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
+		907A00A120897736007DFE0C /* MatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				907A0094208956ED007DFE0C /* LaunchScreen.storyboard */,
 				907A0097208956ED007DFE0C /* Info.plist */,
 				907A009D20896131007DFE0C /* MatchTableViewCell.swift */,
+				907A009F208973E5007DFE0C /* EventTableViewCell.swift */,
+				907A00A120897736007DFE0C /* MatchViewController.swift */,
 			);
 			path = Obligatorio_1;
 			sourceTree = "<group>";
@@ -139,9 +145,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				907A00A0208973E5007DFE0C /* EventTableViewCell.swift in Sources */,
 				907A008E208956ED007DFE0C /* ViewController.swift in Sources */,
 				907A009E20896131007DFE0C /* MatchTableViewCell.swift in Sources */,
 				907A008C208956ED007DFE0C /* AppDelegate.swift in Sources */,
+				907A00A220897736007DFE0C /* MatchViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
