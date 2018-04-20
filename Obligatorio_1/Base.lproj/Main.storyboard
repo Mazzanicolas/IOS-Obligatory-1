@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jT5-Tn-V1l">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--UCU World Cup-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <viewController title="UCU World Cup" id="BYZ-38-t0r" customClass="ViewController" customModule="Obligatorio_1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gh0-Ql-wJn">
+                                <rect key="frame" x="0.0" y="104" width="375" height="563"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="id" rowHeight="200" id="D7p-61-wXa" customClass="MatchTableViewCell" customModule="Obligatorio_1" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="200"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="D7p-61-wXa" id="slI-ss-E22">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JSv-DT-McO">
+                                                    <rect key="frame" x="10" y="40" width="100" height="100"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" secondItem="JSv-DT-McO" secondAttribute="width" multiplier="1:1" id="RL3-F5-yW8"/>
+                                                        <constraint firstAttribute="width" constant="100" id="z1S-c8-Hdh"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TfG-gO-rXv">
+                                                    <rect key="frame" x="265" y="84.5" width="100" height="100"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="TfG-gO-rXv" secondAttribute="height" multiplier="1:1" id="NSP-hh-N0C"/>
+                                                        <constraint firstAttribute="width" constant="100" id="gnR-gC-S13"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country L" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g8f-bn-6cS">
+                                                    <rect key="frame" x="115" y="118.5" width="81.5" height="22"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country R" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wu5-sS-Jge">
+                                                    <rect key="frame" x="177" y="163" width="83" height="22"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dd of month - hh:mm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RLR-P3-Pl3">
+                                                    <rect key="frame" x="115.5" y="5" width="144.5" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZxJ-GB-9cB">
+                                                    <rect key="frame" x="168.5" y="24" width="37" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group N" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rtY-bA-4Xv">
+                                                    <rect key="frame" x="159" y="43" width="57" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="rtY-bA-4Xv" firstAttribute="top" secondItem="ZxJ-GB-9cB" secondAttribute="bottom" constant="1" id="69Y-ka-liz"/>
+                                                <constraint firstItem="rtY-bA-4Xv" firstAttribute="centerX" secondItem="slI-ss-E22" secondAttribute="centerX" id="BDW-Ee-N3a"/>
+                                                <constraint firstItem="ZxJ-GB-9cB" firstAttribute="centerX" secondItem="slI-ss-E22" secondAttribute="centerX" id="Fwe-GJ-q3k"/>
+                                                <constraint firstItem="RLR-P3-Pl3" firstAttribute="top" secondItem="slI-ss-E22" secondAttribute="top" constant="5" id="Nbr-tx-jDn"/>
+                                                <constraint firstAttribute="trailing" secondItem="TfG-gO-rXv" secondAttribute="trailing" constant="10" id="TBj-MT-Db7"/>
+                                                <constraint firstItem="ZxJ-GB-9cB" firstAttribute="top" secondItem="RLR-P3-Pl3" secondAttribute="bottom" constant="1" id="TGU-8C-WO4"/>
+                                                <constraint firstItem="g8f-bn-6cS" firstAttribute="bottom" secondItem="JSv-DT-McO" secondAttribute="bottom" id="Uec-78-j3c"/>
+                                                <constraint firstItem="RLR-P3-Pl3" firstAttribute="centerX" secondItem="slI-ss-E22" secondAttribute="centerX" id="XYC-fh-wfb"/>
+                                                <constraint firstItem="TfG-gO-rXv" firstAttribute="leading" secondItem="Wu5-sS-Jge" secondAttribute="trailing" constant="5" id="cLu-u0-bRi"/>
+                                                <constraint firstItem="JSv-DT-McO" firstAttribute="leading" secondItem="slI-ss-E22" secondAttribute="leading" constant="10" id="evm-cP-hsv"/>
+                                                <constraint firstItem="Wu5-sS-Jge" firstAttribute="bottom" secondItem="TfG-gO-rXv" secondAttribute="bottom" id="fnF-SC-zgg"/>
+                                                <constraint firstAttribute="bottom" secondItem="TfG-gO-rXv" secondAttribute="bottom" constant="15" id="g72-Js-WNT"/>
+                                                <constraint firstItem="g8f-bn-6cS" firstAttribute="leading" secondItem="JSv-DT-McO" secondAttribute="trailing" constant="5" id="kzB-dg-NET"/>
+                                                <constraint firstItem="JSv-DT-McO" firstAttribute="top" secondItem="slI-ss-E22" secondAttribute="top" constant="40" id="utW-a6-Lhr"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="countryLeftImageView" destination="JSv-DT-McO" id="yva-3A-reO"/>
+                                            <outlet property="countryLeftLabel" destination="g8f-bn-6cS" id="Gfq-ut-ciE"/>
+                                            <outlet property="countryRightImageView" destination="TfG-gO-rXv" id="cVf-pv-Wpq"/>
+                                            <outlet property="countryRightLabel" destination="Wu5-sS-Jge" id="7pq-j8-ead"/>
+                                            <outlet property="dateLabel" destination="RLR-P3-Pl3" id="hmL-C6-pya"/>
+                                            <outlet property="groupLabel" destination="rtY-bA-4Xv" id="Bv9-YD-N8j"/>
+                                            <outlet property="placeLabel" destination="ZxJ-GB-9cB" id="N4M-X9-FQt"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Gh0-Ql-wJn" secondAttribute="trailing" id="Bmq-Bh-Zfg"/>
+                            <constraint firstItem="Gh0-Ql-wJn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="b33-Af-qeQ"/>
+                            <constraint firstItem="Gh0-Ql-wJn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cVq-8C-DqG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Gh0-Ql-wJn" secondAttribute="bottom" id="y7B-AN-8zw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="UCU World Cup" id="AOx-cw-yDD"/>
+                    <connections>
+                        <outlet property="tableView" destination="Gh0-Ql-wJn" id="zZZ-hW-7o6"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="412" y="150.67466266866569"/>
+        </scene>
+        <!--Potato World Cup-->
+        <scene sceneID="aV9-H8-dwa">
+            <objects>
+                <navigationController title="Potato World Cup" id="jT5-Tn-V1l" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2yz-uu-Nz2">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="JXE-Kl-PBL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kI1-YZ-ZA8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-314" y="151"/>
+        </scene>
+    </scenes>
+</document>
