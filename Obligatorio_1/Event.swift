@@ -15,8 +15,7 @@ class Event{ //Gol en contra?
     var playerName:      String
     var countryTeamName: String
     
-    init(time: Int, emoji: String, playerName: String, countryTeamName: String) {
-        
+    init(time: Int, emoji: String, playerName: String, countryTeamName: String) {        
         self.time            = time
         self.emoji           = emoji
         self.playerName      = playerName

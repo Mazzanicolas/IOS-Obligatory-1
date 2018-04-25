@@ -18,7 +18,6 @@ class Match{
     var events:    Array<Event>
     var stadium:   Stadium
     var type:      String
-
     
     init(homeTeam: CountryTeam, awayTeam: CountryTeam, homeScore: Int, awayScore: Int, date: String, events: Array<Event>, stadium: Stadium, type: String) {
         self.homeTeam  = homeTeam

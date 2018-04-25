@@ -15,8 +15,7 @@ class TeamMember {
     var countryTeam: String
     var club:        String?
     
-    init(name: String, temporalId: String, countryTeam: String, club: String?) {
-        
+    init(name: String, temporalId: String, countryTeam: String, club: String?) {        
         self.name        = name
         self.temporalId  = temporalId
         self.countryTeam = countryTeam

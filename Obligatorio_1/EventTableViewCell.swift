@@ -9,7 +9,6 @@
 import UIKit
 
 class EventTableViewCell: UITableViewCell {
-
     
     @IBOutlet weak var eventTime:       UILabel!
     @IBOutlet weak var leftEmoji:       UILabel!

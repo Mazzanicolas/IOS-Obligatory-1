@@ -9,13 +9,12 @@
 import UIKit
 
 class CountryTeam {
-    
+        
     var name:        String
     var teamMembers: Array<TeamMember>
     var logo:        UIImage
     
-    init(name: String, teamMembers: Array<TeamMember>, logo: UIImage) {
-        
+    init(name: String, teamMembers: Array<TeamMember>, logo: UIImage) {    
         self.name        = name
         self.teamMembers = teamMembers
         self.logo        = logo
