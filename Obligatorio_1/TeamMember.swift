@@ -10,10 +10,10 @@ import UIKit
 
 class TeamMember {
     
-    var name: String
-    var temporalId: String //Ask for Rname
+    var name:        String
+    var temporalId:  String //Ask for Rname
     var countryTeam: String
-    var club: String?
+    var club:        String?
     
     init(name: String, temporalId: String, countryTeam: String, club: String?) {
         

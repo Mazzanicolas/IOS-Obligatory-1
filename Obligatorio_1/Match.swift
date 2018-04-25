@@ -10,25 +10,25 @@ import UIKit
 
 class Match{
     
-    var homeTeam: CountryTeam
-    var awayTeam: CountryTeam
+    var homeTeam:  CountryTeam
+    var awayTeam:  CountryTeam
     var homeScore: Int
     var awayScore: Int
-    var date: String //Date?
-    var events: Array<Event>
-    var stadium: Stadium
-    var type: String
+    var date:      String //Date?
+    var events:    Array<Event>
+    var stadium:   Stadium
+    var type:      String
 
     
     init(homeTeam: CountryTeam, awayTeam: CountryTeam, homeScore: Int, awayScore: Int, date: String, events: Array<Event>, stadium: Stadium, type: String) {
-        self.homeTeam = homeTeam
-        self.awayTeam = awayTeam
+        self.homeTeam  = homeTeam
+        self.awayTeam  = awayTeam
         self.homeScore = homeScore
         self.awayScore = awayScore
-        self.date     = date
-        self.events   = events
-        self.stadium  = stadium
-        self.type     = type
+        self.date      = date
+        self.events    = events
+        self.stadium   = stadium
+        self.type      = type
     }
     
 }

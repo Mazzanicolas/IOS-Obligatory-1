@@ -8,16 +8,16 @@
 
 import UIKit
 
-class CountryTeam{
+class CountryTeam {
     
-    var name: String
+    var name:        String
     var teamMembers: Array<TeamMember>
-    var logo: UIImage
+    var logo:        UIImage
     
     init(name: String, teamMembers: Array<TeamMember>, logo: UIImage) {
         
-        self.name = name
+        self.name        = name
         self.teamMembers = teamMembers
-        self.logo = logo
+        self.logo        = logo
     }
 }
