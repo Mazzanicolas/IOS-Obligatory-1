@@ -8,18 +8,18 @@
 
 import UIKit
 
-class Match{
+class Match {
     
     var homeTeam:  CountryTeam
     var awayTeam:  CountryTeam
     var homeScore: Int
     var awayScore: Int
-    var date:      String //Date?
+    var date:      Date
     var events:    Array<Event>
     var stadium:   Stadium
     var type:      String
     
-    init(homeTeam: CountryTeam, awayTeam: CountryTeam, homeScore: Int, awayScore: Int, date: String, events: Array<Event>, stadium: Stadium, type: String) {
+    init(homeTeam: CountryTeam, awayTeam: CountryTeam, homeScore: Int, awayScore: Int, date: Date, events: Array<Event>, stadium: Stadium, type: String) {
         self.homeTeam  = homeTeam
         self.awayTeam  = awayTeam
         self.homeScore = homeScore

@@ -11,10 +11,10 @@
 		84A43A28208D2F4900FE48C7 /* TeamMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A43A27208D2F4900FE48C7 /* TeamMember.swift */; };
 		84A43A2A208D348700FE48C7 /* CountryTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A43A29208D348700FE48C7 /* CountryTeam.swift */; };
 		84A43A2C208D360000FE48C7 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A43A2B208D360000FE48C7 /* Match.swift */; };
-		84A43A2E208D3A3800FE48C7 /* Stadium.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A43A2D208D3A3800FE48C7 /* Stadium.swift */; };
 		84A43A30208D3B0F00FE48C7 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A43A2F208D3B0E00FE48C7 /* Event.swift */; };
 		84A43A32208D4BA300FE48C7 /* CountryTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A43A31208D4BA300FE48C7 /* CountryTeamViewController.swift */; };
 		84A43A34208D4C2E00FE48C7 /* PlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A43A33208D4C2E00FE48C7 /* PlayerTableViewCell.swift */; };
+		902337D2209152CD00075816 /* Stadium.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902337D1209152CD00075816 /* Stadium.swift */; };
 		907A008C208956ED007DFE0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907A008B208956ED007DFE0C /* AppDelegate.swift */; };
 		907A008E208956ED007DFE0C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907A008D208956ED007DFE0C /* ViewController.swift */; };
 		907A0091208956ED007DFE0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 907A008F208956ED007DFE0C /* Main.storyboard */; };
@@ -30,10 +30,10 @@
 		84A43A27208D2F4900FE48C7 /* TeamMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMember.swift; sourceTree = "<group>"; };
 		84A43A29208D348700FE48C7 /* CountryTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryTeam.swift; sourceTree = "<group>"; };
 		84A43A2B208D360000FE48C7 /* Match.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
-		84A43A2D208D3A3800FE48C7 /* Stadium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stadium.swift; sourceTree = "<group>"; };
 		84A43A2F208D3B0E00FE48C7 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		84A43A31208D4BA300FE48C7 /* CountryTeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryTeamViewController.swift; sourceTree = "<group>"; };
 		84A43A33208D4C2E00FE48C7 /* PlayerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTableViewCell.swift; sourceTree = "<group>"; };
+		902337D1209152CD00075816 /* Stadium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stadium.swift; sourceTree = "<group>"; };
 		907A0088208956ED007DFE0C /* Obligatorio_1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Obligatorio_1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		907A008B208956ED007DFE0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		907A008D208956ED007DFE0C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -88,11 +88,11 @@
 				84A43A27208D2F4900FE48C7 /* TeamMember.swift */,
 				84A43A29208D348700FE48C7 /* CountryTeam.swift */,
 				84A43A2B208D360000FE48C7 /* Match.swift */,
-				84A43A2D208D3A3800FE48C7 /* Stadium.swift */,
 				84A43A2F208D3B0E00FE48C7 /* Event.swift */,
 				84A43A31208D4BA300FE48C7 /* CountryTeamViewController.swift */,
 				84A43A33208D4C2E00FE48C7 /* PlayerTableViewCell.swift */,
 				84590C89208D5324004DBE6A /* NextMachtCollectionViewCell.swift */,
+				902337D1209152CD00075816 /* Stadium.swift */,
 			);
 			path = Obligatorio_1;
 			sourceTree = "<group>";
@@ -174,11 +174,11 @@
 				907A008E208956ED007DFE0C /* ViewController.swift in Sources */,
 				84A43A28208D2F4900FE48C7 /* TeamMember.swift in Sources */,
 				84A43A30208D3B0F00FE48C7 /* Event.swift in Sources */,
-				84A43A2E208D3A3800FE48C7 /* Stadium.swift in Sources */,
 				84590C8A208D5324004DBE6A /* NextMachtCollectionViewCell.swift in Sources */,
 				907A009E20896131007DFE0C /* MatchTableViewCell.swift in Sources */,
 				907A008C208956ED007DFE0C /* AppDelegate.swift in Sources */,
 				84A43A34208D4C2E00FE48C7 /* PlayerTableViewCell.swift in Sources */,
+				902337D2209152CD00075816 /* Stadium.swift in Sources */,
 				84A43A32208D4BA300FE48C7 /* CountryTeamViewController.swift in Sources */,
 				84A43A2C208D360000FE48C7 /* Match.swift in Sources */,
 				907A00A220897736007DFE0C /* MatchViewController.swift in Sources */,

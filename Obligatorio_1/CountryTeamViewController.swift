@@ -10,9 +10,12 @@ import UIKit
 
 class CountryTeamViewController: UIViewController {
 
+    var country: CountryTeam!
+    @IBOutlet weak var countryImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        title = country.name
         // Do any additional setup after loading the view.
     }
 

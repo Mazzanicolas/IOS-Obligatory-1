@@ -11,13 +11,15 @@ import UIKit
 class ViewController: UIViewController, UITableViewDelegate, 
 UITableViewDataSource {
     
+    var matches:Array<Match>!
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate   = self
         tableView.dataSource = self
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        TeamMember(name:"Roberto Carlos", temporalId: "69", countryTeam: "Rusia", club: "Un Club")
     }
 
     override func didReceiveMemoryWarning() {
