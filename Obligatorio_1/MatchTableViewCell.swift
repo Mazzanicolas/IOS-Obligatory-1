@@ -10,13 +10,15 @@ import UIKit
 
 class MatchTableViewCell: UITableViewCell  {
 
-    @IBOutlet weak var dateLabel:             UILabel!
-    @IBOutlet weak var placeLabel:            UILabel!
-    @IBOutlet weak var groupLabel:            UILabel!
-    @IBOutlet weak var countryLeftImageView:  UIImageView!
-    @IBOutlet weak var countryRightImageView: UIImageView!
-    @IBOutlet weak var countryLeftLabel:      UILabel!
-    @IBOutlet weak var countryRightLabel:     UILabel!
+    @IBOutlet weak var dateLabel:         UILabel!
+    @IBOutlet weak var placeLabel:        UILabel!
+    @IBOutlet weak var groupLabel:        UILabel!
+    @IBOutlet weak var homeTeamImageView: UIImageView!
+    @IBOutlet weak var awayTeamImageView: UIImageView!
+    @IBOutlet weak var homeTeamLabel:     UILabel!
+    @IBOutlet weak var awayTeamLabel:     UILabel!
+    @IBOutlet weak var homeScoreLabel:    UILabel!
+    @IBOutlet weak var awayScoreLabel:    UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
