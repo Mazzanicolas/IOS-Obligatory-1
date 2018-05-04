@@ -33,7 +33,7 @@ UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "id", for: indexPath) as! MatchTableViewCell
         let match = matches[indexPath.row]
-        cell.dateLabel.text          = Utils.formatDate(date: match.date)
+        cell.dateLabel.text          = Utils.formatDateMedium(date: match.date)
         cell.placeLabel.text         = match.stadium.name
         cell.groupLabel.text         = match.type
         cell.homeTeamLabel.text      = match.homeTeam.name
@@ -55,6 +55,7 @@ UITableViewDataSource {
         return 200
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //if indexPath.row == 2{return}
         performSegue(withIdentifier: "showDetails", sender: nil)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -14,12 +14,14 @@ class TeamMember {
     var temporalId:  String //Ask for Rname
     var countryTeam: String
     var club:        String?
+    var rol:         String
     
-    init(name: String, temporalId: String, countryTeam: String, club: String?) {        
+    init(name: String, temporalId: String, countryTeam: String, club: String?, rol: String) {
         self.name        = name
         self.temporalId  = temporalId
         self.countryTeam = countryTeam
         self.club        = club
+        self.rol         = rol
     }
     
 }

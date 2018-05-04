@@ -12,6 +12,8 @@ class CountryTeamViewController: UIViewController,UITableViewDataSource, UITable
 
     var country: CountryTeam!
     var nextMatches: Array<Match>!
+    let sectionTitles = ["Player","Substitute","TD"]
+    var playersByRol  = [String:Array<TeamMember>]()
     @IBOutlet weak var countryImageView: UIImageView!
     @IBOutlet weak var countryImage: UIImageView!
     @IBOutlet weak var playersTableView: UITableView!
@@ -19,13 +21,20 @@ class CountryTeamViewController: UIViewController,UITableViewDataSource, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        for title in sectionTitles{
+            playersByRol[title] = Array<TeamMember>()
+        }
+        for player in country.teamMembers{
+            playersByRol[player.rol]!.append(player)
+        }
         title = country.name
         countryImage.image = country.logo
         playersTableView.delegate = self
         playersTableView.dataSource = self
         nextMatchesCollectionView.delegate = self
         nextMatchesCollectionView.dataSource = self
-        nextMatches = Utils.createDummyData()
+        nextMatches = Utils.getNextMatchesOf(countryName: country.name)
+   
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,17 +43,17 @@ class CountryTeamViewController: UIViewController,UITableViewDataSource, UITable
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return nextMatches.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell =
             collectionView.dequeueReusableCell(withReuseIdentifier: "nextMatchCellId", for: indexPath) as! NextMachtCollectionViewCell
-        let match = nextMatches[0]
+        let match = nextMatches[indexPath.row]
         let rivalTeam = getRivalTeam(match: match, country: country)
         cell.countryLogoImage.image = rivalTeam.logo
         cell.countryNameLabel.text = rivalTeam.name
-        cell.matchDateLabel.text = Utils.formatDate(date: match.date)
+        cell.matchDateLabel.text = Utils.formatDateShort(date: match.date)
         cell.stadiumNameLabel.text = match.stadium.name
         return cell
     }
@@ -56,7 +65,7 @@ class CountryTeamViewController: UIViewController,UITableViewDataSource, UITable
         return match.awayTeam
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return country.teamMembers.count
+        return playersByRol[sectionTitles[section]]!.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -65,11 +74,33 @@ class CountryTeamViewController: UIViewController,UITableViewDataSource, UITable
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "playerCellId", for: indexPath) as! PlayerTableViewCell
-        let player = country.teamMembers[indexPath.row]
+        let section = indexPath.section
+        let row = indexPath.row
+        let player = playersByRol[sectionTitles[section]]![row]
         cell.temporalIdLabel.text = player.temporalId
         cell.playerNameLabel.text = player.name
         cell.playerClubLabel.text = player.club//Checkear nils
         return cell
     }
 
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return sectionTitles.count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sectionTitles[section]+"s"
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier else {return}
+        if(identifier == "fromCountryToMatch"){
+            let cell = sender as! NextMachtCollectionViewCell
+            let indexPath = nextMatchesCollectionView.indexPath(for: cell)!
+            let match = nextMatches[(indexPath.row)]
+            print(match)
+            let destination = segue.destination as! MatchViewController
+            destination.match = match
+        } else {
+            return
+        }
+    }
 }

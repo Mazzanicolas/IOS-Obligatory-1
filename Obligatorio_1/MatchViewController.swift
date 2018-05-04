@@ -41,7 +41,7 @@ class MatchViewController: UIViewController, UITableViewDataSource, UITableViewD
         awayTeamImageView.image = match.awayTeam.logo
         homeTeamNameLabel.text  = match.homeTeam.name
         awayTeamNameLabel.text  = match.awayTeam.name
-        dateLabel.text          = Utils.formatDate(date: match.date)
+        dateLabel.text          = Utils.formatDateMedium(date: match.date)
     }
     
     override func didReceiveMemoryWarning() {
@@ -56,7 +56,17 @@ class MatchViewController: UIViewController, UITableViewDataSource, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "eventCellId", for: indexPath) as! EventTableViewCell
         let event = match.events[indexPath.row]
-        
+        if event.eventShownOn == "Right" {
+            cell.rightEmoji.text       = event.emoji
+            cell.rightDescription.text = event.eventDescription //Renombrar player name
+            cell.leftEmoji.text        = ""
+            cell.leftDescription.text  = ""
+        } else {
+            cell.rightEmoji.text       = ""
+            cell.rightDescription.text = ""
+            cell.leftEmoji.text        = event.emoji
+            cell.leftDescription.text  = event.eventDescription //Renombrar player name
+        }
         cell.eventTime.text = String(event.time)+"'"
         
         return cell

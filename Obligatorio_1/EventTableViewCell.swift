@@ -10,11 +10,11 @@ import UIKit
 
 class EventTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var eventTime:       UILabel!
-    @IBOutlet weak var leftEmoji:       UILabel!
-    @IBOutlet weak var rightPlayerName: UILabel!
-    @IBOutlet weak var leftPlayerName:  UILabel!
-    @IBOutlet weak var rightEmoji:      UILabel!
+    @IBOutlet weak var eventTime:        UILabel!
+    @IBOutlet weak var leftEmoji:        UILabel!
+    @IBOutlet weak var rightEmoji:       UILabel!
+    @IBOutlet weak var leftDescription:  UILabel!
+    @IBOutlet weak var rightDescription: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

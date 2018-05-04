@@ -8,18 +8,18 @@
 
 import UIKit
 
-class Event { //Gol en contra?
+class Event {
     
     var time:             Int
     var emoji:            String
     var eventDescription: String
-    var countryTeamName:  String
+    var eventShownOn:     String
     
-    init(time: Int, emoji: String, eventDescription: String, countryTeamName: String) {
+    init(time: Int, emoji: String, eventDescription: String, eventShownOn: String) {
         self.time             = time
         self.emoji            = emoji
         self.eventDescription = eventDescription
-        self.countryTeamName  = countryTeamName
+        self.eventShownOn     = eventShownOn
     }
     
 }
