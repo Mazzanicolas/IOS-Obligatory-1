@@ -37,9 +37,9 @@ UITableViewDataSource {
         cell.placeLabel.text         = match.stadium.name
         cell.groupLabel.text         = match.type
         cell.homeTeamLabel.text      = match.homeTeam.name
-        cell.homeTeamImageView.image = match.homeTeam.logo
+        cell.homeTeamImageView.image = UIImage(named:match.homeTeam.logoName)
         cell.awayTeamLabel.text      = match.awayTeam.name
-        cell.awayTeamImageView.image = match.awayTeam.logo
+        cell.awayTeamImageView.image = UIImage(named:match.awayTeam.logoName)
         if let awayScore = match.awayScore, let homeScore = match.homeScore {
             cell.awayScoreLabel.text     = String(awayScore)+" -"
             cell.homeScoreLabel.text     = "- "+String(homeScore)

@@ -35,10 +35,10 @@ class MatchViewController: UIViewController, UITableViewDataSource, UITableViewD
         homeTeamImageView.isUserInteractionEnabled = true
         
         title = match.homeTeam.name+" vs "+match.awayTeam.name
-        stadiumImageView.image  = match.stadium.logo
+        stadiumImageView.image  = UIImage(named: match.stadium.imageURL)
         stadiumNameLabel.text   = match.stadium.name
-        homeTeamImageView.image = match.homeTeam.logo
-        awayTeamImageView.image = match.awayTeam.logo
+        homeTeamImageView.image = UIImage(named:match.homeTeam.logoName)
+        awayTeamImageView.image = UIImage(named:match.awayTeam.logoName)
         homeTeamNameLabel.text  = match.homeTeam.name
         awayTeamNameLabel.text  = match.awayTeam.name
         dateLabel.text          = Utils.formatDateMedium(date: match.date)

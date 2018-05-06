@@ -27,8 +27,8 @@ class Utils {
     
     static func createDummyData() -> Array<Match>{
         // Stadiums
-        let stadium:  Stadium = Stadium(name: "Luzhniki Stadium",         logo: #imageLiteral(resourceName: "luzhniki stadium"))
-        let stadium2: Stadium = Stadium(name: "Saint Petersbutg Stadium", logo: #imageLiteral(resourceName: "Saint Petersburg Stadium"))
+        let stadium:  Stadium = Stadium(name: "Luzhniki Stadium",         imageURL: "luzhniki stadium")
+        let stadium2: Stadium = Stadium(name: "Saint Petersburg Stadium", imageURL: "Saint Petersburg Stadium")
         // Dates
         let formatter = DateFormatter()
         formatter.dateFormat = "dd/MM/yyyy HH:mm"
@@ -54,19 +54,19 @@ class Utils {
         let russiaTeamMemberIds:   Array<String> = ["1","12","DT","99","3","4","5"]
         let russiaTeamMemberClubs: Array<String> = ["Russia CSKA Moscow","Russia Spartak Moscow","Russia Zenit Saint Petersburge","Turkey Fenerbahce","Russia Spartak Moscow","Russia Akhmat Grozny"]
         let russiaTeamMembers = createTeamMembers(teamMemberNames: russiaTeamMemberNames, teamMemberIds: russiaTeamMemberIds, countryTeam: "Russia", teamMemberClubs: russiaTeamMemberClubs,teamMemberRols: teamMemberRols)
-        let russia = CountryTeam(name: "Russia", teamMembers: russiaTeamMembers,logo: #imageLiteral(resourceName: "367px-Coat_of_Arms_of_the_Russian_Federation_2.svg"))
+        let russia = CountryTeam(name: "Russia", teamMembers: russiaTeamMembers,logoName: "367px-Coat_of_Arms_of_the_Russian_Federation_2.svg")
         // Uruguayan Team
         let uruguayTeamMemberNames: Array<String> = ["Fernando Muslera","Martín Silva","Oscar Tabarez","Martín Campaña","Maxi Pereira","Diego Godín","José María Giménez"]
         let uruguayTeamMemberIds:   Array<String> = ["1","23","DT","12","16","3","2"]
         let uruguayTeamMemberClubs: Array<String> = ["Turkey Galatasaray","Brazil Vasco da Gama","Argentina Independiente","Portugal Porto","Spain Atlético Madrid","Spain Atlético Madrid"]
         let uruguayTeamMembers = createTeamMembers(teamMemberNames: uruguayTeamMemberNames, teamMemberIds: uruguayTeamMemberIds, countryTeam: "Uruguay", teamMemberClubs: uruguayTeamMemberClubs,teamMemberRols: teamMemberRols)
-        let uruguay = CountryTeam(name: "Uruguay", teamMembers: uruguayTeamMembers, logo: #imageLiteral(resourceName: "Uruguayan_Football_Association_logo"))
+        let uruguay = CountryTeam(name: "Uruguay", teamMembers: uruguayTeamMembers, logoName: "Uruguayan_Football_Association_logo")
         // gg Peru Team
         let peruTeamMemberNames:    Array<String> = ["Carlos Cáceda","José Carvallo","Ricardo Gareca","Alejandro Duarte","Alberto Rodríguez","Christian Ramos","Luis Advíncula","Aldo Corzo"]
         let peruTeamMemberIds:      Array<String> = ["6","5","DT","0","72","65","64","24"]
         let peruTeamMemberClubs:    Array<String> = ["Veracruz","UTC","Universidad San Martín","Junior","Veracruz","BUAP","Universitario de Deportes"]
         let peruTeamMembers = createTeamMembers(teamMemberNames: peruTeamMemberNames, teamMemberIds: peruTeamMemberIds, countryTeam: "Peru", teamMemberClubs: peruTeamMemberClubs,teamMemberRols: teamMemberRols)
-        let peru = CountryTeam(name: "Peru", teamMembers: peruTeamMembers, logo: #imageLiteral(resourceName: "257px-Fpf-logo.svg"))
+        let peru = CountryTeam(name: "Peru", teamMembers: peruTeamMembers, logoName: "257px-Fpf-logo.svg")
         // Match
         let match  = Match(homeTeam: russia, awayTeam: uruguay,homeScore: 4,awayScore: 0,date: date, events: eventList, stadium: stadium, type: "Group A")
         let match2 = Match(homeTeam: russia, awayTeam: peru,homeScore: nil,awayScore: nil,date: date2, events: eventList2, stadium: stadium2, type: "Group B")

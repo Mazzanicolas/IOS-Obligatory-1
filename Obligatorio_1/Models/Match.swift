@@ -6,8 +6,6 @@
 //  Copyright © 2018 UCU. All rights reserved.
 //
 
-import UIKit
-
 class Match {
     
     var homeTeam:  CountryTeam

@@ -28,7 +28,7 @@ class CountryTeamViewController: UIViewController,UITableViewDataSource, UITable
             playersByRol[player.rol]!.append(player)
         }
         title = country.name
-        countryImage.image = country.logo
+        countryImage.image = UIImage(named: country.logoName)
         playersTableView.delegate = self
         playersTableView.dataSource = self
         nextMatchesCollectionView.delegate = self
@@ -51,7 +51,7 @@ class CountryTeamViewController: UIViewController,UITableViewDataSource, UITable
             collectionView.dequeueReusableCell(withReuseIdentifier: "nextMatchCellId", for: indexPath) as! NextMachtCollectionViewCell
         let match = nextMatches[indexPath.row]
         let rivalTeam = getRivalTeam(match: match, country: country)
-        cell.countryLogoImage.image = rivalTeam.logo
+        cell.countryLogoImage.image = UIImage(named: rivalTeam.logoName)
         cell.countryNameLabel.text = rivalTeam.name
         cell.matchDateLabel.text = Utils.formatDateShort(date: match.date)
         cell.stadiumNameLabel.text = match.stadium.name

@@ -6,15 +6,13 @@
 //  Copyright © 2018 UCU. All rights reserved.
 //
 
-import UIKit
-
 class Stadium {
     
     var name: String
-    var logo: UIImage
+    var imageURL: String
     
-    init(name: String, logo: UIImage){
+    init(name: String, imageURL: String){
         self.name = name
-        self.logo = logo
+        self.imageURL = imageURL
     }
 }
