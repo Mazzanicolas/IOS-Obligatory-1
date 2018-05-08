@@ -75,7 +75,6 @@ class Utils {
         matches.append(match)
         matches.append(match2)
         matches.append(match3)
-        
         return matches
     }
     

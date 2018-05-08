@@ -5,7 +5,7 @@
 //  Created by Admin on 23/04/2018.
 //  Copyright © 2018 UCU. All rights reserved.
 //
-
+import Foundation
 class Match {
     
     var homeTeam:  CountryTeam

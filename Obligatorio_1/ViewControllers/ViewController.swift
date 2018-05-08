@@ -54,6 +54,7 @@ UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
     }
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //if indexPath.row == 2{return}
         performSegue(withIdentifier: "showDetails", sender: nil)
