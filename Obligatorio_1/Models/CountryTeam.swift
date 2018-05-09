@@ -9,11 +9,12 @@ class CountryTeam {
         
     var name:        String
     var teamMembers: Array<TeamMember>
-    var logoName:        String
+    var logoName:    String
     
     init(name: String, teamMembers: Array<TeamMember>, logoName: String) {
         self.name        = name
         self.teamMembers = teamMembers
         self.logoName    = logoName
     }
+    
 }

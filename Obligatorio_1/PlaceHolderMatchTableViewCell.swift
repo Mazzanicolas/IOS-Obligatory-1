@@ -11,10 +11,10 @@ import UIKit
 class PlaceHolderMatchTableViewCell: UITableViewCell {
 
     @IBOutlet weak var matchDateLabel: UILabel!
-    @IBOutlet weak var stadiumLabel: UILabel!
+    @IBOutlet weak var stadiumLabel:   UILabel!
     @IBOutlet weak var matchTypeLabel: UILabel!
-    @IBOutlet weak var homeTeamLabel: UILabel!
-    @IBOutlet weak var awayTeamLabel: UILabel!
+    @IBOutlet weak var homeTeamLabel:  UILabel!
+    @IBOutlet weak var awayTeamLabel:  UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

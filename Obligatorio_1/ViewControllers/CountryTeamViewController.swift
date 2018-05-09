@@ -10,12 +10,12 @@ import UIKit
 
 class CountryTeamViewController: UIViewController,UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
 
-    var country: CountryTeam!
+    var country:     CountryTeam!
     var nextMatches: Array<Match>!
-    let sectionTitles = ["Player","Substitute","TD"]
+    let sectionTitles = ["Player","Substitute","TD"] // (FIX) en vez de inferir el tipo,¿lo hacemos explicito? agregarle : Array<String>
     var playersByRol  = [String:Array<TeamMember>]()
     @IBOutlet weak var countryImageView: UIImageView!
-    @IBOutlet weak var countryImage: UIImageView!
+    @IBOutlet weak var countryImage:     UIImageView!
     @IBOutlet weak var playersTableView: UITableView!
     @IBOutlet weak var nextMatchesCollectionView: UICollectionView!
     
@@ -29,9 +29,9 @@ class CountryTeamViewController: UIViewController,UITableViewDataSource, UITable
         }
         title = country.name
         countryImage.image = UIImage(named: country.logoName)
-        playersTableView.delegate = self
+        playersTableView.delegate   = self
         playersTableView.dataSource = self
-        nextMatchesCollectionView.delegate = self
+        nextMatchesCollectionView.delegate   = self
         nextMatchesCollectionView.dataSource = self
         nextMatches = Utils.getNextMatchesOf(countryName: country.name)
    
@@ -47,14 +47,13 @@ class CountryTeamViewController: UIViewController,UITableViewDataSource, UITable
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell =
-            collectionView.dequeueReusableCell(withReuseIdentifier: "nextMatchCellId", for: indexPath) as! NextMachtCollectionViewCell
+        let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: "nextMatchCellId", for: indexPath) as! NextMachtCollectionViewCell
         let match = nextMatches[indexPath.row]
         let rivalTeam = getRivalTeam(match: match, country: country)
         cell.countryLogoImage.image = UIImage(named: rivalTeam.logoName)
-        cell.countryNameLabel.text = rivalTeam.name
-        cell.matchDateLabel.text = Utils.formatDateShort(date: match.date)
-        cell.stadiumNameLabel.text = match.stadium.name
+        cell.countryNameLabel.text  = rivalTeam.name
+        cell.matchDateLabel.text    = Utils.formatDateShort(date: match.date)
+        cell.stadiumNameLabel.text  = match.stadium.name
         return cell
     }
     
@@ -64,6 +63,7 @@ class CountryTeamViewController: UIViewController,UITableViewDataSource, UITable
         }
         return match.awayTeam
     }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return playersByRol[sectionTitles[section]]!.count
     }
@@ -79,7 +79,16 @@ class CountryTeamViewController: UIViewController,UITableViewDataSource, UITable
         let player = playersByRol[sectionTitles[section]]![row]
         cell.temporalIdLabel.text = player.temporalId
         cell.playerNameLabel.text = player.name
-        cell.playerClubLabel.text = player.club//Checkear nils
+        /* (FIX) como club es optional necesitamos un if let, un guard no porque retorna.
+        if let teamMemberClub = club:teamMemberClubs[index] {
+            cell.playerClubLabel.text = player.club
+        } else {
+            // Pick one, ocultar la label o hacerla vacia. Antes, en un caso similar, la ocultamos.
+            //cell.playerClubLabel.isHidden = true
+            //cell.playerClubLabel.text = ""
+        }
+        */
+        cell.playerClubLabel.text = player.club// (FIX) *Checkear nils* ^^^ Borrar si lo de arriba esta bien
         return cell
     }
 
@@ -93,14 +102,15 @@ class CountryTeamViewController: UIViewController,UITableViewDataSource, UITable
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let identifier = segue.identifier else {return}
         if(identifier == "fromCountryToMatch"){
-            let cell = sender as! NextMachtCollectionViewCell
-            let indexPath = nextMatchesCollectionView.indexPath(for: cell)!
-            let match = nextMatches[(indexPath.row)]
-            print(match)
-            let destination = segue.destination as! MatchViewController
+            let cell          = sender as! NextMachtCollectionViewCell
+            let indexPath     = nextMatchesCollectionView.indexPath(for: cell)!
+            let match         = nextMatches[(indexPath.row)]
+            print(match) // (FIX) Borrar el print
+            let destination   = segue.destination as! MatchViewController
             destination.match = match
         } else {
             return
         }
     }
+    
 }
