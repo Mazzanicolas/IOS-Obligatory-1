@@ -51,20 +51,20 @@ class Utils {
         // Russia Team
         let russiaTeamMemberNames: Array<String> = ["Igor Akinfeev","Aleksandr Selikhov","Stanislav Cherchesov","Andrey Lunyov","Roman Neustadter","Ilya Kutepov","Andrei Semyonov"]
         let russiaTeamMemberIds:   Array<String> = ["1","12","DT","99","3","4","5"]
-        let russiaTeamMemberClubs: Array<String> = ["Russia CSKA Moscow","Russia Spartak Moscow","Russia Zenit Saint Petersburge","Turkey Fenerbahce","Russia Spartak Moscow","Russia Akhmat Grozny"]
+        let russiaTeamMemberClubs: Array<String> = ["Russia CSKA Moscow","Russia Spartak Moscow","","Turkey Fenerbahce","Russia Spartak Moscow","Russia Akhmat Grozny"]
         let russiaTeamMembers = createTeamMembers(teamMemberNames: russiaTeamMemberNames, teamMemberIds: russiaTeamMemberIds, countryTeam: "Russia", teamMemberClubs: russiaTeamMemberClubs,teamMemberRols: teamMemberRols)
         let russia = CountryTeam(name: "Russia", teamMembers: russiaTeamMembers,logoName: "367px-Coat_of_Arms_of_the_Russian_Federation_2.svg")
         // Uruguay Team
         let uruguayTeamMemberNames: Array<String> = ["Fernando Muslera","Martín Silva","Oscar Tabarez","Martín Campaña","Maxi Pereira","Diego Godín","José María Giménez"]
         let uruguayTeamMemberIds:   Array<String> = ["1","23","DT","12","16","3","2"]
-        let uruguayTeamMemberClubs: Array<String> = ["Turkey Galatasaray","Brazil Vasco da Gama","Argentina Independiente","Portugal Porto","Spain Atlético Madrid","Spain Atlético Madrid"]
+        let uruguayTeamMemberClubs: Array<String> = ["Turkey Galatasaray","Brazil Vasco da Gama","","Portugal Porto","Spain Atlético Madrid","Spain Atlético Madrid"]
         let uruguayTeamMembers = createTeamMembers(teamMemberNames: uruguayTeamMemberNames, teamMemberIds: uruguayTeamMemberIds, countryTeam: "Uruguay", teamMemberClubs: uruguayTeamMemberClubs,teamMemberRols: teamMemberRols)
         let uruguay = CountryTeam(name: "Uruguay", teamMembers: uruguayTeamMembers, logoName: "Uruguayan_Football_Association_logo")
         // gg Peru Team
-        // (FIX) A Ricardo Gareca lo estamos poniendo como DT y le estamos pasando "Universidad San Martín" como club, no deberia de tener. cambiar por nil. lo mismo para otros paises
+        // (FIXED) A Ricardo Gareca lo estamos poniendo como DT y le estamos pasando "Universidad San Martín" como club, no deberia de tener. cambiar por nil. lo mismo para otros paises
         let peruTeamMemberNames:    Array<String> = ["Carlos Cáceda","José Carvallo","Ricardo Gareca","Alejandro Duarte","Alberto Rodríguez","Christian Ramos","Luis Advíncula","Aldo Corzo"]
         let peruTeamMemberIds:      Array<String> = ["6","5","DT","0","72","65","64","24"]
-        let peruTeamMemberClubs:    Array<String> = ["Veracruz","UTC","Universidad San Martín","Junior","Veracruz","BUAP","Universitario de Deportes"]
+        let peruTeamMemberClubs:    Array<String> = ["Veracruz","UTC","","Junior","Veracruz","BUAP","Universitario de Deportes"]
         let peruTeamMembers = createTeamMembers(teamMemberNames: peruTeamMemberNames, teamMemberIds: peruTeamMemberIds, countryTeam: "Peru", teamMemberClubs: peruTeamMemberClubs,teamMemberRols: teamMemberRols)
         let peru = CountryTeam(name: "Peru", teamMembers: peruTeamMembers, logoName: "257px-Fpf-logo.svg")
         // Match
@@ -81,7 +81,11 @@ class Utils {
     static func createTeamMembers(teamMemberNames: Array<String>, teamMemberIds: Array<String>, countryTeam: String, teamMemberClubs: Array<String>, teamMemberRols: Array<String>) -> Array<TeamMember>{
         var teamMembers: Array<TeamMember> = []
         for index in 0...5 {
-            teamMembers.append(TeamMember(name:teamMemberNames[index], temporalId:teamMemberIds[index], countryTeam:countryTeam, club:teamMemberClubs[index],rol: teamMemberRols[index]))
+            var club:String? = nil
+            if teamMemberClubs[index] != "" {
+                club = teamMemberClubs[index]
+            }
+            teamMembers.append(TeamMember(name:teamMemberNames[index], temporalId:teamMemberIds[index], countryTeam:countryTeam, club:club,rol: teamMemberRols[index]))
         }
         return teamMembers
     }

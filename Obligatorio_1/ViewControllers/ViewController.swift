@@ -31,7 +31,7 @@ UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "id", for: indexPath) as! MatchTableViewCell // (FIX) renombrar "id"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "NormalMatch", for: indexPath) as! MatchTableViewCell // (FIXED) renombrar "id"
         let match = matches[indexPath.row]
         cell.dateLabel.text          = Utils.formatDateMedium(date: match.date)
         cell.placeLabel.text         = match.stadium.name
@@ -65,8 +65,6 @@ UITableViewDataSource {
             let match         = matches[(tableView.indexPathForSelectedRow?.row)!]
             let destination   = segue.destination as! MatchViewController
             destination.match = match
-        } else {
-            return
         }
     }
     

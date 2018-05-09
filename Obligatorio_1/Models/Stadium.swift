@@ -8,11 +8,11 @@
 
 class Stadium {
     
-    var name: String
+    var name:     String
     var imageURL: String
     
     init(name: String, imageURL: String){
-        self.name = name
+        self.name     = name
         self.imageURL = imageURL
     }
     

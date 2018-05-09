@@ -12,7 +12,7 @@ class CountryTeamViewController: UIViewController,UITableViewDataSource, UITable
 
     var country:     CountryTeam!
     var nextMatches: Array<Match>!
-    let sectionTitles = ["Player","Substitute","TD"] // (FIX) en vez de inferir el tipo,¿lo hacemos explicito? agregarle : Array<String>
+    let sectionTitles = ["Player","Substitute","TD"] // (FIX) en vez de inferir el tipo,¿lo hacemos explicito? agregarle : Array<String> - Es lo mismo
     var playersByRol  = [String:Array<TeamMember>]()
     @IBOutlet weak var countryImageView: UIImageView!
     @IBOutlet weak var countryImage:     UIImageView!
@@ -77,18 +77,15 @@ class CountryTeamViewController: UIViewController,UITableViewDataSource, UITable
         let section = indexPath.section
         let row = indexPath.row
         let player = playersByRol[sectionTitles[section]]![row]
-        cell.temporalIdLabel.text = player.temporalId
+        cell.temporalIdLabel.text = player.teamMemberId
         cell.playerNameLabel.text = player.name
-        /* (FIX) como club es optional necesitamos un if let, un guard no porque retorna.
-        if let teamMemberClub = club:teamMemberClubs[index] {
-            cell.playerClubLabel.text = player.club
+       //(FIXED) como club es optional necesitamos un if let, un guard no porque retorna.
+        if let teamMemberClub = player.club{
+            cell.playerClubLabel.text     = teamMemberClub
+            cell.playerClubLabel.isHidden = false //Preguntar
         } else {
-            // Pick one, ocultar la label o hacerla vacia. Antes, en un caso similar, la ocultamos.
-            //cell.playerClubLabel.isHidden = true
-            //cell.playerClubLabel.text = ""
+            cell.playerClubLabel.isHidden = true
         }
-        */
-        cell.playerClubLabel.text = player.club// (FIX) *Checkear nils* ^^^ Borrar si lo de arriba esta bien
         return cell
     }
 
@@ -101,15 +98,12 @@ class CountryTeamViewController: UIViewController,UITableViewDataSource, UITable
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let identifier = segue.identifier else {return}
-        if(identifier == "fromCountryToMatch"){
+        if identifier == "fromCountryToMatch" {
             let cell          = sender as! NextMachtCollectionViewCell
             let indexPath     = nextMatchesCollectionView.indexPath(for: cell)!
             let match         = nextMatches[(indexPath.row)]
-            print(match) // (FIX) Borrar el print
             let destination   = segue.destination as! MatchViewController
             destination.match = match
-        } else {
-            return
         }
     }
     

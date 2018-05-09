@@ -9,14 +9,14 @@
 class TeamMember {
     
     var name:        String
-    var temporalId:  String // (FIX) RENAME: ¿teamMemberID?
+    var teamMemberId:  String // (FIXED) RENAME: ¿teamMemberID?
     var countryTeam: String
-    var club:        String?// (FIX) Si no le pasas un club, no se rompe?, queda en nil?
+    var club:        String?// (FIX) Si no le pasas un club, no se rompe?, queda en nil?  -Se Rompe si forzas el unwrap
     var rol:         String
     
     init(name: String, temporalId: String, countryTeam: String, club: String?, rol: String) {
         self.name        = name
-        self.temporalId  = temporalId
+        self.teamMemberId  = temporalId
         self.countryTeam = countryTeam
         self.club        = club
         self.rol         = rol
