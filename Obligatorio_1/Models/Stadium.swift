@@ -15,4 +15,5 @@ class Stadium {
         self.name = name
         self.imageURL = imageURL
     }
+    
 }

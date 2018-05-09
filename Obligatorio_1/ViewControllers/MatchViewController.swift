@@ -54,18 +54,18 @@ class MatchViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "eventCellId", for: indexPath) as! EventTableViewCell
+        let cell  = tableView.dequeueReusableCell(withIdentifier: "eventCellId", for: indexPath) as! EventTableViewCell
         let event = match.events[indexPath.row]
         if event.eventShownOn == "Right" {
             cell.rightEmoji.text       = event.emoji
-            cell.rightDescription.text = event.eventDescription //Renombrar player name
+            cell.rightDescription.text = event.eventDescription
             cell.leftEmoji.text        = ""
             cell.leftDescription.text  = ""
         } else {
             cell.rightEmoji.text       = ""
             cell.rightDescription.text = ""
             cell.leftEmoji.text        = event.emoji
-            cell.leftDescription.text  = event.eventDescription //Renombrar player name
+            cell.leftDescription.text  = event.eventDescription
         }
         cell.eventTime.text = String(event.time)+"'"
         
@@ -86,11 +86,14 @@ class MatchViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "countryDetails" {
-            let countryDetails = segue.destination as! CountryTeamViewController
-            guard let countryTeam = selectedCountryTeam else{return}
+            let countryDetails     = segue.destination as! CountryTeamViewController
+            guard let countryTeam  = selectedCountryTeam else { return }
             countryDetails.country = countryTeam
+        } // (FIX) creo que nos falto esto
+        /* else {
+            return
         }
+        */
     }
-    
   
 }

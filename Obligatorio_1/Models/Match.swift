@@ -6,6 +6,7 @@
 //  Copyright © 2018 UCU. All rights reserved.
 //
 import Foundation
+
 class Match {
     
     var homeTeam:  CountryTeam

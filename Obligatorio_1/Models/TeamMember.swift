@@ -9,9 +9,9 @@
 class TeamMember {
     
     var name:        String
-    var temporalId:  String //Ask for Rname
+    var temporalId:  String // (FIX) RENAME: ¿teamMemberID?
     var countryTeam: String
-    var club:        String?
+    var club:        String?// (FIX) Si no le pasas un club, no se rompe?, queda en nil?
     var rol:         String
     
     init(name: String, temporalId: String, countryTeam: String, club: String?, rol: String) {

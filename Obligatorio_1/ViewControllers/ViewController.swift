@@ -31,7 +31,7 @@ UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "id", for: indexPath) as! MatchTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "id", for: indexPath) as! MatchTableViewCell // (FIX) renombrar "id"
         let match = matches[indexPath.row]
         cell.dateLabel.text          = Utils.formatDateMedium(date: match.date)
         cell.placeLabel.text         = match.stadium.name
@@ -60,14 +60,15 @@ UITableViewDataSource {
         performSegue(withIdentifier: "showDetails", sender: nil)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let identifier = segue.identifier else {return}
-        if(identifier == "showDetails"){
-            let match = matches[(tableView.indexPathForSelectedRow?.row)!]
-            let destination = segue.destination as! MatchViewController
+        guard let identifier = segue.identifier else { return }
+        if identifier == "showDetails" {
+            let match         = matches[(tableView.indexPathForSelectedRow?.row)!]
+            let destination   = segue.destination as! MatchViewController
             destination.match = match
         } else {
             return
         }
     }
+    
 }
 
