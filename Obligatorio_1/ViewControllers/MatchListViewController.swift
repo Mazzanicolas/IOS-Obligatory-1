@@ -31,7 +31,7 @@ UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "NormalMatch", for: indexPath) as! MatchTableViewCell // (FIXED) renombrar "id"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "NormalMatch", for: indexPath) as! MatchTableViewCell
         let match = matches[indexPath.row]
         
         switch match {
@@ -43,12 +43,12 @@ UITableViewDataSource {
             cell.homeTeamImageView.image = UIImage(named:actualMatch.homeTeam.logoName)
             cell.awayTeamLabel.text      = actualMatch.awayTeam.name
             cell.awayTeamImageView.image = UIImage(named:actualMatch.awayTeam.logoName)
-            cell.homeTeamImageView.isHidden = false
-            cell.awayTeamImageView.isHidden = false
 
             if let awayScore = actualMatch.awayScore, let homeScore = actualMatch.homeScore {
                 cell.awayScoreLabel.text     = String(awayScore)+" -"
                 cell.homeScoreLabel.text     = "- "+String(homeScore)
+                cell.awayScoreLabel.isHidden = false
+                cell.homeScoreLabel.isHidden = false
             } else {
                 cell.awayScoreLabel.isHidden = true
                 cell.homeScoreLabel.isHidden = true
@@ -59,8 +59,10 @@ UITableViewDataSource {
             cell.groupLabel.text         = placeholderMatchBothUnknown.type
             cell.homeTeamLabel.text      = placeholderMatchBothUnknown.homeTeam
             cell.awayTeamLabel.text      = placeholderMatchBothUnknown.awayTeam
-            cell.homeTeamImageView.isHidden = true
-            cell.awayTeamImageView.isHidden = true
+            cell.homeTeamImageView.image = #imageLiteral(resourceName: "plaholderImage")
+            cell.awayTeamImageView.image = #imageLiteral(resourceName: "plaholderImage")
+            cell.awayScoreLabel.isHidden = true
+            cell.homeScoreLabel.isHidden = true
 
         
         case .placeholderMatchHomeKnown(let placeholderMatchHomeKnown):
@@ -69,8 +71,10 @@ UITableViewDataSource {
             cell.groupLabel.text         = placeholderMatchHomeKnown.type
             cell.homeTeamLabel.text      = placeholderMatchHomeKnown.homeTeam.name
             cell.awayTeamLabel.text      = placeholderMatchHomeKnown.awayTeam
-            cell.homeTeamImageView.isHidden = true
-            cell.awayTeamImageView.isHidden = false
+            cell.homeTeamImageView.image = UIImage(named:placeholderMatchHomeKnown.homeTeam.logoName)
+            cell.awayTeamImageView.image = #imageLiteral(resourceName: "plaholderImage")
+            cell.awayScoreLabel.isHidden = true
+            cell.homeScoreLabel.isHidden = true
         
         case .placeholderMatchAwayKnown(let placeholderMatchAwayKnown):
             cell.dateLabel.text          = Utils.formatDateMedium(date: placeholderMatchAwayKnown.date)
@@ -78,8 +82,10 @@ UITableViewDataSource {
             cell.groupLabel.text         = placeholderMatchAwayKnown.type
             cell.homeTeamLabel.text      = placeholderMatchAwayKnown.homeTeam
             cell.awayTeamLabel.text      = placeholderMatchAwayKnown.awayTeam.name
-            cell.homeTeamImageView.isHidden = false
-            cell.awayTeamImageView.isHidden = true
+            cell.homeTeamImageView.image = #imageLiteral(resourceName: "plaholderImage")
+            cell.awayTeamImageView.image =  UIImage(named:placeholderMatchAwayKnown.awayTeam.logoName)
+            cell.awayScoreLabel.isHidden = true
+            cell.homeScoreLabel.isHidden = true
         }
         return cell
     }
@@ -89,7 +95,6 @@ UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //if indexPath.row == 2{return}
         performSegue(withIdentifier: "showDetails", sender: nil)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

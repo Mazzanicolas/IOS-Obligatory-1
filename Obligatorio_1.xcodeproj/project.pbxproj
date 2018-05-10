@@ -18,7 +18,7 @@
 		9009EB9820929B710055B4D3 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9009EB9720929B710055B4D3 /* Utils.swift */; };
 		902337D2209152CD00075816 /* Stadium.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902337D1209152CD00075816 /* Stadium.swift */; };
 		907A008C208956ED007DFE0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907A008B208956ED007DFE0C /* AppDelegate.swift */; };
-		907A008E208956ED007DFE0C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907A008D208956ED007DFE0C /* ViewController.swift */; };
+		907A008E208956ED007DFE0C /* MatchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907A008D208956ED007DFE0C /* MatchListViewController.swift */; };
 		907A0091208956ED007DFE0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 907A008F208956ED007DFE0C /* Main.storyboard */; };
 		907A0093208956ED007DFE0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 907A0092208956ED007DFE0C /* Assets.xcassets */; };
 		907A0096208956ED007DFE0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 907A0094208956ED007DFE0C /* LaunchScreen.storyboard */; };
@@ -40,7 +40,7 @@
 		902337D1209152CD00075816 /* Stadium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stadium.swift; sourceTree = "<group>"; };
 		907A0088208956ED007DFE0C /* Obligatorio_1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Obligatorio_1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		907A008B208956ED007DFE0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		907A008D208956ED007DFE0C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		907A008D208956ED007DFE0C /* MatchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchListViewController.swift; sourceTree = "<group>"; };
 		907A0090208956ED007DFE0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		907A0092208956ED007DFE0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		907A0095208956ED007DFE0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -64,7 +64,7 @@
 		7A354501209FB5550066745A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				907A008D208956ED007DFE0C /* ViewController.swift */,
+				907A008D208956ED007DFE0C /* MatchListViewController.swift */,
 				907A00A120897736007DFE0C /* MatchViewController.swift */,
 				84A43A31208D4BA300FE48C7 /* CountryTeamViewController.swift */,
 			);
@@ -91,6 +91,18 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		7A3FAA6520A3E38900DAC4B7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				907A009D20896131007DFE0C /* MatchTableViewCell.swift */,
+				907A009F208973E5007DFE0C /* EventTableViewCell.swift */,
+				84A43A33208D4C2E00FE48C7 /* PlayerTableViewCell.swift */,
+				84590C89208D5324004DBE6A /* NextMachtCollectionViewCell.swift */,
+				7A3544FF209FAE200066745A /* PlaceHolderMatchTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		907A007F208956ED007DFE0C = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +122,7 @@
 		907A008A208956ED007DFE0C /* Obligatorio_1 */ = {
 			isa = PBXGroup;
 			children = (
+				7A3FAA6520A3E38900DAC4B7 /* Views */,
 				7A354503209FB5B40066745A /* Helpers */,
 				7A354502209FB5880066745A /* Models */,
 				7A354501209FB5550066745A /* ViewControllers */,
@@ -118,11 +131,6 @@
 				907A0092208956ED007DFE0C /* Assets.xcassets */,
 				907A0094208956ED007DFE0C /* LaunchScreen.storyboard */,
 				907A0097208956ED007DFE0C /* Info.plist */,
-				907A009D20896131007DFE0C /* MatchTableViewCell.swift */,
-				907A009F208973E5007DFE0C /* EventTableViewCell.swift */,
-				84A43A33208D4C2E00FE48C7 /* PlayerTableViewCell.swift */,
-				84590C89208D5324004DBE6A /* NextMachtCollectionViewCell.swift */,
-				7A3544FF209FAE200066745A /* PlaceHolderMatchTableViewCell.swift */,
 			);
 			path = Obligatorio_1;
 			sourceTree = "<group>";
@@ -201,7 +209,7 @@
 			files = (
 				84A43A2A208D348700FE48C7 /* CountryTeam.swift in Sources */,
 				907A00A0208973E5007DFE0C /* EventTableViewCell.swift in Sources */,
-				907A008E208956ED007DFE0C /* ViewController.swift in Sources */,
+				907A008E208956ED007DFE0C /* MatchListViewController.swift in Sources */,
 				9009EB9820929B710055B4D3 /* Utils.swift in Sources */,
 				84A43A28208D2F4900FE48C7 /* TeamMember.swift in Sources */,
 				84A43A30208D3B0F00FE48C7 /* Event.swift in Sources */,

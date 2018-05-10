@@ -12,7 +12,7 @@ class CountryTeamViewController: UIViewController,UITableViewDataSource, UITable
 
     var country:     CountryTeam!
     var nextMatches: Array<Match>!
-    let sectionTitles = ["Player","Substitute","TD"] // (FIX) en vez de inferir el tipo,¿lo hacemos explicito? agregarle : Array<String> - Es lo mismo
+    let sectionTitles = ["Player","Substitute","TD"]
     var playersByRol  = [String:Array<TeamMember>]()
     @IBOutlet weak var countryImageView: UIImageView!
     @IBOutlet weak var countryImage:     UIImageView!
@@ -55,13 +55,13 @@ class CountryTeamViewController: UIViewController,UITableViewDataSource, UITable
         let date = getRivalTeam(match: match, country: country).3
         if let rivalTeam = rivalTeam {
             cell.countryLogoImage.image = UIImage(named: rivalTeam.logoName)
-
+        }else{
+            cell.countryLogoImage.image = #imageLiteral(resourceName: "plaholderImage")
         }
         cell.countryNameLabel.text  = rivalTeamName
         cell.matchDateLabel.text    = date
         cell.stadiumNameLabel.text  = stadium
         return cell
-        }
     }
     
     func getRivalTeam(match: Match, country: CountryTeam)->(CountryTeam?, String,String,String){
@@ -96,10 +96,9 @@ class CountryTeamViewController: UIViewController,UITableViewDataSource, UITable
         let player = playersByRol[sectionTitles[section]]![row]
         cell.temporalIdLabel.text = player.teamMemberId
         cell.playerNameLabel.text = player.name
-       //(FIXED) como club es optional necesitamos un if let, un guard no porque retorna.
         if let teamMemberClub = player.club{
             cell.playerClubLabel.text     = teamMemberClub
-            cell.playerClubLabel.isHidden = false //Preguntar
+            cell.playerClubLabel.isHidden = false
         } else {
             cell.playerClubLabel.isHidden = true
         }

@@ -8,18 +8,18 @@
 
 class TeamMember {
     
-    var name:        String
-    var teamMemberId:  String // (FIXED) RENAME: ¿teamMemberID?
-    var countryTeam: String
-    var club:        String?// (FIX) Si no le pasas un club, no se rompe?, queda en nil?  -Se Rompe si forzas el unwrap
-    var rol:         String
+    var name:         String
+    var teamMemberId: String
+    var countryTeam:  String
+    var club:         String?
+    var rol:          String
     
     init(name: String, temporalId: String, countryTeam: String, club: String?, rol: String) {
-        self.name        = name
+        self.name          = name
         self.teamMemberId  = temporalId
-        self.countryTeam = countryTeam
-        self.club        = club
-        self.rol         = rol
+        self.countryTeam   = countryTeam
+        self.club          = club
+        self.rol           = rol
     }
     
 }

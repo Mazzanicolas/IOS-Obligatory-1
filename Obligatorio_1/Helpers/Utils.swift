@@ -34,7 +34,7 @@ class Utils {
         let date:    Date    =  formatter.date(from:"25/06/2018 18:00")!
         let date2:   Date    =  formatter.date(from:"25/08/2018 19:00")!
         // Event List 1
-        let event1:  Event   = Event(time: 00,emoji: "⚽",eventDescription: "Un gol", eventShownOn: "Right")
+        let event1:  Event   = Event(time: 00,emoji: "⚽",eventDescription: "Un gololazo del messi", eventShownOn: "Right")
         let event2:  Event   = Event(time: 20,emoji: "⚽",eventDescription: "Un gol", eventShownOn: "Right")
         let event3:  Event   = Event(time: 30,emoji: "⚽",eventDescription: "Un gol", eventShownOn: "Left")
         let event4:  Event   = Event(time: 60,emoji: "⚽",eventDescription: "Un gol", eventShownOn: "Right")
@@ -61,7 +61,6 @@ class Utils {
         let uruguayTeamMembers = createTeamMembers(teamMemberNames: uruguayTeamMemberNames, teamMemberIds: uruguayTeamMemberIds, countryTeam: "Uruguay", teamMemberClubs: uruguayTeamMemberClubs,teamMemberRols: teamMemberRols)
         let uruguay = CountryTeam(name: "Uruguay", teamMembers: uruguayTeamMembers, logoName: "Uruguayan_Football_Association_logo")
         // gg Peru Team
-        // (FIXED) A Ricardo Gareca lo estamos poniendo como DT y le estamos pasando "Universidad San Martín" como club, no deberia de tener. cambiar por nil. lo mismo para otros paises
         let peruTeamMemberNames:    Array<String> = ["Carlos Cáceda","José Carvallo","Ricardo Gareca","Alejandro Duarte","Alberto Rodríguez","Christian Ramos","Luis Advíncula","Aldo Corzo"]
         let peruTeamMemberIds:      Array<String> = ["6","5","DT","0","72","65","64","24"]
         let peruTeamMemberClubs:    Array<String> = ["Veracruz","UTC","","Junior","Veracruz","BUAP","Universitario de Deportes"]
@@ -71,13 +70,17 @@ class Utils {
         let match  = Match.actualMatch(ActualMatch(homeTeam: russia,  awayTeam: uruguay, homeScore: 4,   awayScore: 0,   date: date,  events: eventList,  stadium: stadium,  type: "Group A"))
         let match2 = Match.actualMatch(ActualMatch(homeTeam: russia,  awayTeam: peru,    homeScore: nil, awayScore: nil, date: date2, events: eventList2, stadium: stadium2, type: "Group B"))
         let match3 = Match.actualMatch(ActualMatch(homeTeam: uruguay, awayTeam: peru,    homeScore: nil, awayScore: nil, date: date2, events: eventList2, stadium: stadium,  type: "Group C"))
-        let matchPlaceHolder = Match.placeholderMatchBothUnknown(PlaceholderMatchBothUnknown(homeTeam: "Primero Grupo A", awayTeam: "Primero Grupo B",date:date2,stadium:stadium, type: "SemiFinal"))
+        let matchPlaceHolder = Match.placeholderMatchBothUnknown(PlaceholderMatchBothUnknown(homeTeam: "Primero Grupo C", awayTeam: "Primero Grupo D",date:date2,stadium:stadium, type: "SemiFinal"))
+        let matchPlaceHolder1 = Match.placeholderMatchAwayKnown(PlaceholderMatchAwayKnown(homeTeam: "Primero Grupo A", awayTeam: russia,date:date2,stadium:stadium, type: "SemiFinal"))
+        let matchPlaceHolder2 = Match.placeholderMatchHomeKnown(PlaceholderMatchHomeKnown(homeTeam: peru, awayTeam: "Primero Grupo B",date:date2,stadium:stadium, type: "SemiFinal"))
+
         matches.append(match)
         matches.append(match2)
         matches.append(match3)
+        matches.append(matchPlaceHolder1)
+        matches.append(matchPlaceHolder2)
         matches.append(matchPlaceHolder)
-        
-        
+
         return matches
     }
     
@@ -97,8 +100,22 @@ class Utils {
         var nextMatches: Array<Match> = []
     
         for match in matches {
-            if match.awayTeam.name == countryName || match.homeTeam.name == countryName && match.homeScore == nil {
-                nextMatches.append(match)
+            switch match {
+            case .actualMatch(let actualMatch):
+                if actualMatch.awayTeam.name == countryName || actualMatch.homeTeam.name == countryName && actualMatch.homeScore == nil {
+                    nextMatches.append(match)
+                }
+                
+            case .placeholderMatchHomeKnown(let placeholderMatchHomeKnown):
+                if placeholderMatchHomeKnown.homeTeam.name == countryName {
+                    nextMatches.append(match)
+                }
+            case .placeholderMatchAwayKnown(let placeholderMatchAwayKnown):
+                if placeholderMatchAwayKnown.awayTeam.name == countryName {
+                    nextMatches.append(match)
+                }
+            default:
+                continue
             }
         }
         return nextMatches

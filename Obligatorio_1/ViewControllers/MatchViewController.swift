@@ -72,7 +72,7 @@ class MatchViewController: UIViewController, UITableViewDataSource, UITableViewD
             stadiumImageView.image  = UIImage(named: placeholderMatchAwayKnown.stadium.imageURL)
             stadiumNameLabel.text   = placeholderMatchAwayKnown.stadium.name
             homeTeamImageView.image = #imageLiteral(resourceName: "plaholderImage")
-            awayTeamImageView.image = #imageLiteral(resourceName: "plaholderImage")
+            awayTeamImageView.image = UIImage(named:placeholderMatchAwayKnown.awayTeam.logoName)
             homeTeamNameLabel.text  = placeholderMatchAwayKnown.homeTeam
             awayTeamNameLabel.text  = placeholderMatchAwayKnown.awayTeam.name
             dateLabel.text          = Utils.formatDateMedium(date: placeholderMatchAwayKnown.date)
