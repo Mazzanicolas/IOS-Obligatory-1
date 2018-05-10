@@ -47,21 +47,38 @@ class CountryTeamViewController: UIViewController,UITableViewDataSource, UITable
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: "nextMatchCellId", for: indexPath) as! NextMachtCollectionViewCell
         let match = nextMatches[indexPath.row]
-        let rivalTeam = getRivalTeam(match: match, country: country)
-        cell.countryLogoImage.image = UIImage(named: rivalTeam.logoName)
-        cell.countryNameLabel.text  = rivalTeam.name
-        cell.matchDateLabel.text    = Utils.formatDateShort(date: match.date)
-        cell.stadiumNameLabel.text  = match.stadium.name
+        let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: "nextMatchCellId", for: indexPath) as! NextMachtCollectionViewCell
+        let rivalTeam = getRivalTeam(match: match, country: country).0
+        let rivalTeamName = getRivalTeam(match: match, country: country).1
+        let stadium = getRivalTeam(match: match, country: country).2
+        let date = getRivalTeam(match: match, country: country).3
+        if let rivalTeam = rivalTeam {
+            cell.countryLogoImage.image = UIImage(named: rivalTeam.logoName)
+
+        }
+        cell.countryNameLabel.text  = rivalTeamName
+        cell.matchDateLabel.text    = date
+        cell.stadiumNameLabel.text  = stadium
         return cell
+        }
     }
     
-    func getRivalTeam(match: Match, country: CountryTeam)->CountryTeam{
-        if match.homeTeam.name != country.name {
-            return match.homeTeam
+    func getRivalTeam(match: Match, country: CountryTeam)->(CountryTeam?, String,String,String){
+    switch match {
+        case .actualMatch(let actualMatch):
+            if actualMatch.homeTeam.name != country.name {
+                return (actualMatch.homeTeam, actualMatch.homeTeam.name,actualMatch.stadium.name,Utils.formatDateShort(date: actualMatch.date))
+            }
+            return (actualMatch.awayTeam, actualMatch.awayTeam.name,actualMatch.stadium.name,Utils.formatDateShort(date: actualMatch.date))
+        case .placeholderMatchAwayKnown(let placeholderMatchAwayKnown):
+            return (nil, placeholderMatchAwayKnown.homeTeam,placeholderMatchAwayKnown.stadium.name,Utils.formatDateShort(date: placeholderMatchAwayKnown.date))
+        case .placeholderMatchHomeKnown(let placeholderMatchHomeKnown):
+            return (nil, placeholderMatchHomeKnown.awayTeam,placeholderMatchHomeKnown.stadium.name,Utils.formatDateShort(date: placeholderMatchHomeKnown.date))
+        case .placeholderMatchBothUnknown(let placeholderMatchBothUnknown):
+            return (nil, "No Match",placeholderMatchBothUnknown.stadium.name,Utils.formatDateShort(date: placeholderMatchBothUnknown.date))
         }
-        return match.awayTeam
+    
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
