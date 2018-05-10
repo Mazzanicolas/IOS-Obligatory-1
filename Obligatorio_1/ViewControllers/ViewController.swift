@@ -33,21 +33,54 @@ UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NormalMatch", for: indexPath) as! MatchTableViewCell // (FIXED) renombrar "id"
         let match = matches[indexPath.row]
-        cell.dateLabel.text          = Utils.formatDateMedium(date: match.date)
-        cell.placeLabel.text         = match.stadium.name
-        cell.groupLabel.text         = match.type
-        cell.homeTeamLabel.text      = match.homeTeam.name
-        cell.homeTeamImageView.image = UIImage(named:match.homeTeam.logoName)
-        cell.awayTeamLabel.text      = match.awayTeam.name
-        cell.awayTeamImageView.image = UIImage(named:match.awayTeam.logoName)
-        if let awayScore = match.awayScore, let homeScore = match.homeScore {
-            cell.awayScoreLabel.text     = String(awayScore)+" -"
-            cell.homeScoreLabel.text     = "- "+String(homeScore)
-        } else {
-            cell.awayScoreLabel.isHidden = true
-            cell.homeScoreLabel.isHidden = true
-        }
         
+        switch match {
+        case .actualMatch(let actualMatch):
+            cell.dateLabel.text          = Utils.formatDateMedium(date: actualMatch.date)
+            cell.placeLabel.text         = actualMatch.stadium.name
+            cell.groupLabel.text         = actualMatch.type
+            cell.homeTeamLabel.text      = actualMatch.homeTeam.name
+            cell.homeTeamImageView.image = UIImage(named:actualMatch.homeTeam.logoName)
+            cell.awayTeamLabel.text      = actualMatch.awayTeam.name
+            cell.awayTeamImageView.image = UIImage(named:actualMatch.awayTeam.logoName)
+            cell.homeTeamImageView.isHidden = false
+            cell.awayTeamImageView.isHidden = false
+
+            if let awayScore = actualMatch.awayScore, let homeScore = actualMatch.homeScore {
+                cell.awayScoreLabel.text     = String(awayScore)+" -"
+                cell.homeScoreLabel.text     = "- "+String(homeScore)
+            } else {
+                cell.awayScoreLabel.isHidden = true
+                cell.homeScoreLabel.isHidden = true
+            }
+        case .placeholderMatchBothUnknown(let placeholderMatchBothUnknown):
+            cell.dateLabel.text          = Utils.formatDateMedium(date: placeholderMatchBothUnknown.date)
+            cell.placeLabel.text         = placeholderMatchBothUnknown.stadium.name
+            cell.groupLabel.text         = placeholderMatchBothUnknown.type
+            cell.homeTeamLabel.text      = placeholderMatchBothUnknown.homeTeam
+            cell.awayTeamLabel.text      = placeholderMatchBothUnknown.awayTeam
+            cell.homeTeamImageView.isHidden = true
+            cell.awayTeamImageView.isHidden = true
+
+        
+        case .placeholderMatchHomeKnown(let placeholderMatchHomeKnown):
+            cell.dateLabel.text          = Utils.formatDateMedium(date: placeholderMatchHomeKnown.date)
+            cell.placeLabel.text         = placeholderMatchHomeKnown.stadium.name
+            cell.groupLabel.text         = placeholderMatchHomeKnown.type
+            cell.homeTeamLabel.text      = placeholderMatchHomeKnown.homeTeam.name
+            cell.awayTeamLabel.text      = placeholderMatchHomeKnown.awayTeam
+            cell.homeTeamImageView.isHidden = true
+            cell.awayTeamImageView.isHidden = false
+        
+        case .placeholderMatchAwayKnown(let placeholderMatchAwayKnown):
+            cell.dateLabel.text          = Utils.formatDateMedium(date: placeholderMatchAwayKnown.date)
+            cell.placeLabel.text         = placeholderMatchAwayKnown.stadium.name
+            cell.groupLabel.text         = placeholderMatchAwayKnown.type
+            cell.homeTeamLabel.text      = placeholderMatchAwayKnown.homeTeam
+            cell.awayTeamLabel.text      = placeholderMatchAwayKnown.awayTeam.name
+            cell.homeTeamImageView.isHidden = false
+            cell.awayTeamImageView.isHidden = true
+        }
         return cell
     }
 

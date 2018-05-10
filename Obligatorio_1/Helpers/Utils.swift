@@ -68,13 +68,16 @@ class Utils {
         let peruTeamMembers = createTeamMembers(teamMemberNames: peruTeamMemberNames, teamMemberIds: peruTeamMemberIds, countryTeam: "Peru", teamMemberClubs: peruTeamMemberClubs,teamMemberRols: teamMemberRols)
         let peru = CountryTeam(name: "Peru", teamMembers: peruTeamMembers, logoName: "257px-Fpf-logo.svg")
         // Match
-        let match  = Match(homeTeam: russia,  awayTeam: uruguay, homeScore: 4,   awayScore: 0,   date: date,  events: eventList,  stadium: stadium,  type: "Group A")
-        let match2 = Match(homeTeam: russia,  awayTeam: peru,    homeScore: nil, awayScore: nil, date: date2, events: eventList2, stadium: stadium2, type: "Group B")
-        let match3 = Match(homeTeam: uruguay, awayTeam: peru,    homeScore: nil, awayScore: nil, date: date2, events: eventList2, stadium: stadium,  type: "Group C")
-        
+        let match  = Match.actualMatch(ActualMatch(homeTeam: russia,  awayTeam: uruguay, homeScore: 4,   awayScore: 0,   date: date,  events: eventList,  stadium: stadium,  type: "Group A"))
+        let match2 = Match.actualMatch(ActualMatch(homeTeam: russia,  awayTeam: peru,    homeScore: nil, awayScore: nil, date: date2, events: eventList2, stadium: stadium2, type: "Group B"))
+        let match3 = Match.actualMatch(ActualMatch(homeTeam: uruguay, awayTeam: peru,    homeScore: nil, awayScore: nil, date: date2, events: eventList2, stadium: stadium,  type: "Group C"))
+        let matchPlaceHolder = Match.placeholderMatchBothUnknown(PlaceholderMatchBothUnknown(homeTeam: "Primero Grupo A", awayTeam: "Primero Grupo B",date:date2,stadium:stadium, type: "SemiFinal"))
         matches.append(match)
         matches.append(match2)
         matches.append(match3)
+        matches.append(matchPlaceHolder)
+        
+        
         return matches
     }
     
@@ -92,6 +95,7 @@ class Utils {
     
     static func getNextMatchesOf(countryName:String) -> Array<Match> {
         var nextMatches: Array<Match> = []
+    
         for match in matches {
             if match.awayTeam.name == countryName || match.homeTeam.name == countryName && match.homeScore == nil {
                 nextMatches.append(match)

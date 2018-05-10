@@ -7,7 +7,15 @@
 //
 import Foundation
 
-class Match {
+enum Match {
+    
+    case actualMatch(ActualMatch)
+    case placeholderMatchBothUnknown(PlaceholderMatchBothUnknown)
+    case placeholderMatchHomeKnown(PlaceholderMatchHomeKnown)
+    case placeholderMatchAwayKnown(PlaceholderMatchAwayKnown)
+}
+
+class ActualMatch {
     
     var homeTeam:  CountryTeam
     var awayTeam:  CountryTeam
@@ -25,6 +33,56 @@ class Match {
         self.awayScore = awayScore
         self.date      = date
         self.events    = events
+        self.stadium   = stadium
+        self.type      = type
+    }
+    
+}
+
+class PlaceholderMatchBothUnknown{
+    var homeTeam:  String
+    var awayTeam:  String
+    var date:      Date
+    var stadium:   Stadium
+    var type:      String
+    
+    init(homeTeam: String, awayTeam: String, date: Date, stadium: Stadium, type: String) {
+        self.homeTeam  = homeTeam
+        self.awayTeam  = awayTeam
+        self.date      = date
+        self.stadium   = stadium
+        self.type      = type
+    }
+    
+}
+
+class PlaceholderMatchHomeKnown{
+    var homeTeam:  CountryTeam
+    var awayTeam:  String
+    var date:      Date
+    var stadium:   Stadium
+    var type:      String
+    
+    init(homeTeam: CountryTeam, awayTeam: String, date: Date, stadium: Stadium, type: String) {
+        self.homeTeam  = homeTeam
+        self.awayTeam  = awayTeam
+        self.date      = date
+        self.stadium   = stadium
+        self.type      = type
+    }
+}
+
+class PlaceholderMatchAwayKnown{
+    var homeTeam:  String
+    var awayTeam:  CountryTeam
+    var date:      Date
+    var stadium:   Stadium
+    var type:      String
+    
+    init(homeTeam: String, awayTeam: CountryTeam, date: Date, stadium: Stadium, type: String) {
+        self.homeTeam  = homeTeam
+        self.awayTeam  = awayTeam
+        self.date      = date
         self.stadium   = stadium
         self.type      = type
     }
